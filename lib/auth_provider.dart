@@ -1,7 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:logincheck/homepage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'main.dart';
 
 class AuthProvider with ChangeNotifier {
 
@@ -12,7 +17,6 @@ class AuthProvider with ChangeNotifier {
     _loading = value;
     notifyListeners();
   }
-
 
   void login(String email, password) async {
     setLoading(true);
@@ -25,10 +29,13 @@ class AuthProvider with ChangeNotifier {
         print(data['token']);
         print('Login successfully');
         setLoading(false);
+        //Navigator.of(context).pushNamed('favouritesPage');
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('token', data['token']);
+        navigatorKey.currentState?.pushNamed('homepage');
       } else {
         print('failed');
         setLoading(false);
-
       }
     } catch (e) {
       setLoading(false);

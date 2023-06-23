@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
             TextFormField(
               controller: emailController,
               decoration: InputDecoration(
+                label: Text("eve.holt@reqres.in"),
                   hintText: 'Email',
               ),
             ),
@@ -36,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
               controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
+                  label: Text("cityslicka"),
                   hintText: 'password'
               ),
             ),
