@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token') ?? '';
     print(token);
-    if (token == null) {
+    if (token == '') {
       Navigator.pushReplacementNamed(context, 'loginpage');
       print("navigated to login page");
     } else {

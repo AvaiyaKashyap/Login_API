@@ -14,8 +14,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         leading: IconButton(onPressed: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
-          final token = prefs.getString('token') ?? '';
-          print(token);
+          prefs.setString('token', '');
         }, icon: Icon(Icons.check),),
         title: Text("HomePage"),
       ),
