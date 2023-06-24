@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'main.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,6 +17,7 @@ class _HomePageState extends State<HomePage> {
         leading: IconButton(onPressed: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           prefs.setString('token', '');
+          navigatorKey.currentState?.pushReplacementNamed('loginpage');
         }, icon: Icon(Icons.check),),
         title: Text("HomePage"),
       ),

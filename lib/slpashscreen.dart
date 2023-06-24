@@ -10,7 +10,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  _nameRetriever() async {
+  void _nameRetriever() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token') ?? '';
     print(token);
@@ -24,11 +24,11 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
   @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   _nameRetriever();
-  // }
+  void initState()  {
+    // TODO: implement initState
+    super.initState();
+    _nameRetriever();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
